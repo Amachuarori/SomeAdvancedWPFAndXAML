@@ -1,0 +1,64 @@
+﻿<Window x:Class="ReusableControls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ReusableControls" 
+        xmlns:components="clr-namespace:ReusableControls.Components"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid Margin="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.ColumnSpan="3"
+            Grid.Row="0"
+            HorizontalAlignment="Center"
+            FontSize="48"
+            Text="Tiers" />
+
+        <components:TierCard Grid.Column="0" 
+                             Description="The most basic tier"
+                             Color="Bisque" Margin="20"
+                             JoinClick ="JoinBasicClick">
+                            <components:TierCard.Header>
+                                <TextBlock Text="Basic" FontSize="24"/>
+                            </components:TierCard.Header>
+            
+        </components:TierCard>
+
+
+        <components:TierCard  Grid.Column="1" 
+                             Description="The pro tier"
+                             Color="BurlyWood" Margin="20"
+                             JoinClick ="JoinProClick">
+                            <components:TierCard.Header>
+                                <TextBlock Text="Pro" FontSize="24"/>
+                            </components:TierCard.Header>
+        </components:TierCard>
+
+        <components:TierCard  Grid.Column="2" 
+                             Description="The enterprise tier"
+                             Color="DarkBlue" Margin="20"
+                             JoinClick ="JoinEnterpriseClick">
+                            <components:TierCard.Header>
+                                 <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="Enterprise"
+                                                   FontSize="24"/>
+                                        <Image Height="20"
+                                               Width="20"
+                                               Source="/Resources/star.png"
+                                               Margin="10,0,0,0"/>
+                                        </StackPanel>
+                            </components:TierCard.Header>
+        </components:TierCard>
+    </Grid>
+</Window>
